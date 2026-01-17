@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alerta de Stock Bajo</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; color: #333; }
+        .container { padding: 20px; border: 1px solid #eee; max-width: 600px; margin: 20px auto; }
+        .header { font-size: 24px; color: #D90000; /* Rojo Alerta */ }
+        .product-name { font-size: 1.2em; font-weight: bold; color: #333; }
+        .stock-info { font-size: 1.5em; font-weight: bold; color: #D90000; text-align: center; margin: 20px 0; }
+        .footer { margin-top: 30px; text-align: center; font-size: 12px; color: #777; }
+        .footer img { max-width: 100px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="header">¡Alerta de Stock Bajo!</h1>
+
+    <p>Hola <span th:text="${supplierName}">Nombre del Proveedor</span>,</p>
+    <p>Uno de tus productos acaba de alcanzar su nivel mínimo de stock en Dulcefina:</p>
+
+    <p class="product-name" th:text="${product.name}">Nombre del Producto</p>
+
+    <div class="stock-info">
+        Stock Actual: <span th:text="${product.stock}">5</span>
+        (Mínimo: <span th:text="${product.minStock}">10</span>)
+    </div>
+
+    <p>Por favor, coordina la reposición de este producto lo antes posible.</p>
+    <p>¡Gracias!</p>
+
+    <div class="footer">
+        <img src="cid:logoDulcefina" alt="Logo Dulcefina"/><br/>
+        &copy; <span th:text="${currentYear}">2025</span> Dulcefina.
+    </div>
+</div>
+</body>
+</html>
